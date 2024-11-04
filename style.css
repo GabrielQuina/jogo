@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('fotos/background.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    z-index: -1; 
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 400px;
+    width: 100%;
+}
+
+div > img {
+    width: 800px;
+    height: 800px;
+
+}
