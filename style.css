@@ -83,3 +83,95 @@ body
 {
     background-image: url('fotos/background.jpg'); 
 }
+
+.quadro{
+    display: flex;
+    border: solid #b88162 10px ;
+    border-style:ridge ;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 100px;
+    width: 90vh;
+    height: 90vh;
+    background-color: #f9decb;
+
+}
+
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; 
+}
+
+.bubassauro {
+    border: solid #b88162 10px ;
+    border-style:ridge ;
+    padding: 30px;
+    background-color: #a86322;
+    transition: ease 1s;
+}
+
+.bubassauro:hover{
+    transform: scale(1.15);
+}
+
+.bubassauro > img {
+    height: 150px; 
+}
+
+.charmander {
+    display: flex;
+    border: solid #b88162 10px ;
+    border-style:ridge ;
+    padding: 20px 30px;
+    flex-wrap: wrap; 
+    background-color: #a86322;
+    height: 250px;
+    transition: ease 1s;
+}
+
+.charmander:hover{
+    transform: scale(1.15);
+}
+
+.charmander > img {
+    height: 180px;
+}
+
+.squirtle {
+    border: solid #b88162 10px ;
+    border-style:ridge ;
+    padding: 10px;
+    background-color: #a86322;
+    transition: ease 1s;
+}
+
+.squirtle:hover {
+    transform: scale(1.15);
+}
+
+.squirtle > img {
+    height: 200px;
+}
+
+.pikachu {
+    border: solid #b88162 10px ;
+    border-style:ridge ;
+    padding: 22px 12px 120px 5px;
+    background-color: #a86322;
+    height: 250px;
+    position: relative;
+    bottom: 6px;
+    transition: ease 1s;
+
+}
+
+.pikachu:hover {
+    transform: scale(1.15);
+}
+
+.pikachu > img {
+    height: 190px;
+}
