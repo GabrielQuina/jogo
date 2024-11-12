@@ -4,10 +4,12 @@
     box-sizing: border-box;
 }
 
+#tela-inicial{
+    display: block;
+}
+
 #background {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 100vh;
     background-image: url('fotos/background.jpg'); 
@@ -19,14 +21,56 @@
 .logo {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    height: 400px;
-    width: 100%;
+    height: 360px;
+    cursor: pointer;
 }
 
-div > img {
-    width: 800px;
-    height: 800px;
+.logo > img {
+    position: absolute;
+    width: 700px;
+    height: 300px;
+    transition: 0.5s ease;
+    top: 250px;
+} 
+
+.darkrai {
 
 }
-/* syjdgus */
+
+.darkrai > img {
+    height: 500px;
+    
+}
+
+.nomejogo {
+    display: flex;
+    justify-content: center;
+}
+
+.nomejogo > img {
+    height: 430px;
+    width: 1000px;
+
+}
+
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1px;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}    
+
+.start > img {
+    height: 700px;
+    width: 1700px;
+    animation: blink 2s infinite;
+}
