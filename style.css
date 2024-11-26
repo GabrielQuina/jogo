@@ -12,7 +12,7 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    /* background-image: url('fotos/background.jpg');  */
+    background-image: url('fotos/background.jpg'); 
     background-size: cover; 
     background-position: center; 
     z-index: -1; 
