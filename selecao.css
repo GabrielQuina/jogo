@@ -55,6 +55,9 @@ body {
 }
 
 .pokemon {
+    display: flex;
+    flex-direction: column ;
+    text-align: center;
     border: solid #b88162 10px;
     border-style: ridge;
     padding: 30px;
