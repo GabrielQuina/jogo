@@ -4,6 +4,21 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "Pixelify Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 30px
+}
+
+.enunciado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
 
 #background {
     display: flex;
@@ -12,19 +27,17 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-image: url('fotos/background.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    z-index: -1; 
+    background-image: url('fotos/background.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
 }
 
-.quadro{
-    display: flex;
-    border: solid #b88162 10px ;
-    border-style:ridge ;
-    justify-content: center;
+.quadro {
+    border: solid #b88162 10px;
+    border-style: ridge;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 100px;
     width: 90vh;
     height: 90vh;
@@ -33,78 +46,33 @@
 }
 
 .coluna {
+    margin-top: 60px;
     display: flex;
-    flex-direction: column;
-    gap: 100px; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
 }
 
-.bubassauro {
-    border: solid #b88162 10px ;
-    border-style:ridge ;
+.pokemon {
+    display: flex;
+    flex-direction: column ;
+    text-align: center;
+    border: solid #b88162 10px;
+    border-style: ridge;
     padding: 30px;
     background-color: #a86322;
-    transition: ease 1s;
-}
+    transition: ease 0.5s;
+    width: 280px;
+    height: 280px;
 
-.bubassauro:hover{
-    transform: scale(1.15);
-}
+    >img {
+        width: 100%;
+        height: auto;
+    }
 
-.bubassauro > img {
-    height: 150px; 
-}
-
-.charmander {
-    display: flex;
-    border: solid #b88162 10px ;
-    border-style:ridge ;
-    padding: 20px 30px;
-    flex-wrap: wrap; 
-    background-color: #a86322;
-    height: 250px;
-    transition: ease 1s;
-}
-
-.charmander:hover{
-    transform: scale(1.15);
-}
-
-.charmander > img {
-    height: 180px;
-}
-
-.squirtle {
-    border: solid #b88162 10px ;
-    border-style:ridge ;
-    padding: 10px;
-    background-color: #a86322;
-    transition: ease 1s;
-}
-
-.squirtle:hover {
-    transform: scale(1.15);
-}
-
-.squirtle > img {
-    height: 200px;
-}
-
-.pikachu {
-    border: solid #b88162 10px ;
-    border-style:ridge ;
-    padding: 22px 12px 120px 5px;
-    background-color: #a86322;
-    height: 250px;
-    position: relative;
-    bottom: 6px;
-    transition: ease 1s;
-
-}
-
-.pikachu:hover {
-    transform: scale(1.15);
-}
-
-.pikachu > img {
-    height: 190px;
+    &:hover {
+       transform: scale(1.2); 
+       border: solid red 10px;
+    }  
 }
