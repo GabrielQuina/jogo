@@ -4,29 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemón</title>
+    <title>Pokémon</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="fotos/pokebola.ico" type="fotos/pokebola.icoicon">
 </head>
 
 <body>
-    <div id="tela-inicial" class="fadeOut"
-        <div id="background">
-            <div class="logo">
-                <img src="fotos/logo.png" alt="Logo">
-                <div class="darkrai">
-                    <img src="fotos/Darkrai.png" alt="Darkrai">
-                </div>
-            </div>
-            <div class="nomejogo">
-                <img src="fotos/Twilight-Interlude.png" alt="Twilight-Interlude">
-            </div>
-            <div class="start">
-                <img src="fotos/Start.png" alt="Start">
+    <div id="tela-inicial" class="fadeOut" <div id="background">
+        <div class="logo">
+            <img src="fotos/logo.png" alt="Logo">
+            <div class="darkrai">
+                <img src="fotos/Darkrai.png" alt="Darkrai">
             </div>
         </div>
-    </div>    
+        <div class="nomejogo">
+            <img src="fotos/Twilight-Interlude.png" alt="Twilight-Interlude">
+        </div>
+        <div class="start">
+            <img src="fotos/Start.png" alt="Start">
+        </div>
+    </div>
+    </div>
 </body>
 <script src="script.js"></script>
+<script>
+    // Adiciona a classe hidden ao clicar na tela e redireciona para a tela de seleção de personagem
+    document.getElementById("tela-inicial").addEventListener("click", function () {
+        document.getElementById("tela-inicial").classList.add("hidden");
+        // Abre a tela de seleção de personagem depois de 0.8 segundos
+        setTimeout(function () {
+            window.location.href = "selecao.html";
+        }, 800);
+    });
+</script>
 
 </html>

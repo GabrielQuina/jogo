@@ -9,42 +9,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="selecao.css">
+    <link rel="shortcut icon" href="fotos/pokebola.ico" type="fotos/pokebola.icoicon">
 </head>
 
 <body>
     <div id="background">
-        <div class="quadro fadeIn" id="quadro">
+        <div class="quadro fade-in" id="quadro">
             <div class="enunciado">
                 <p>---ESCOLHA UM POKÉMON PARA BATALHAR---</p>
             </div>
+            <div class="subEnunciado">
+                <p id="indicadorPlayer">Player <span id="playerVezlabel">1</span></p>
+                <input type="hidden" id="playerVez" value="1">
+            </div>
             <div class="coluna">
-                <div class="pokemon">
+                <div class="pokemon" id="1" onclick="selecionarPersonagem(this.id)">
                     <img src="fotos/Bubassauro.png" alt="">
                     <p>Bubassauro</p>
                 </div>
-                <div class="pokemon">
+                <div class="pokemon" id="2" onclick="selecionarPersonagem(this.id)">
                     <img src="fotos/charmander.png" alt="">
                     <p>Charmander</p>
-                </div> 
-            </div>       
+                </div>
+            </div>
             <div class="coluna">
-                <div class="pokemon">
+                <div class="pokemon" id="3" onclick="selecionarPersonagem(this.id)">
                     <img src="fotos/squirtle.png" alt="">
                     <p>Squirtle</p>
                 </div>
-                <div class="pokemon">
+                <div class="pokemon" id="4" onclick="selecionarPersonagem(this.id)">
                     <img src="fotos/pikachu.png" alt="">
                     <p>pikachu</p>
-                </div>        
+                </div>
             </div>
         </div>
     </div>
 </body>
+
+<script src="script.js"></script>
 <script>
-    // função para executar algo assim que a pagina carregar
-    window.onload = function() {
-        
-        document.getElementById("quadro").classList.add("visibility");
+    // função ao carregar a pagina
+    window.onload = function () {
+        const element = document.querySelector(".fade-in");
+        element.classList.add("show");
     }
 </script>
+
 </html>

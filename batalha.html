@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,115 @@
     <link rel="stylesheet" href="batalha.css">
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="template">
         <div class="jogador-maquina">
-            <h1>NOME</h1>
+            <h1 id="p1Nome">NOME</h1>
             <div class="hp">
-                <p>HP:</p>
-                <div class="vida"></div>
+                <p>HP: </p>
+                <div class="vida" id="vidap1"></div>
             </div>
         </div>
         <div class="pokemonbatalha1">
-            <img src="fotos/squirtle.gif" alt="">
-        </div> 
+            <img src="fotos/squirtle.gif" id="perso1" alt="">
+        </div>
         <div class="pokemonbatalha2">
-            <img src="fotos/charmander.gif" alt="">
-        </div>   
+            <img src="fotos/charmander.gif" id="perso2" alt="">
+        </div>
         <div class="jogador">
-            <h1>NOME</h1>
+            <h1 id="p2Nome">NOME</h1>
             <div class="hp">
                 <p>HP:</p>
-                <div class="vida"></div>
+                <div class="vida" id="vidap2"></div>
             </div>
         </div>
         <div class="tabela">
-            <p>--GIRAR DADO DE ATAQUE--</p>
+            <p>--Player <span id="playerVezlabel"> 1</span> GIRE O DADO DE ATAQUE--</p>
+            <input type="hidden" id="playerVez">
             <button>
                 <img src="fotos/dados.png" alt="">
             </button>
-        </div> 
+        </div>
     </div>
 </body>
+<script>
+    function atualizarBarra(porcentagem) {
+        const barra = document.querySelector('#vidap1 .vida-inner');
+        if (barra) {
+            barra.style.width = `${porcentagem}%`;
+        }
+    }
+
+    // Adicionando dinamicamente o elemento interno da barra
+    document.addEventListener('DOMContentLoaded', () => {
+        const barraContainer = document.getElementById('vidap1');
+        const barraInner = document.createElement('div');
+        barraInner.classList.add('vida-inner');
+        barraContainer.appendChild(barraInner);
+    });
+
+    window.onload = function () {
+        //pegar as informações do personagem selecionado na sessão
+        const personagem1 = parseInt(sessionStorage.getItem("personagem1"));
+        const personagem2 = parseInt(sessionStorage.getItem("personagem2"));
+        debugger;
+        switch (personagem1) {
+            case 1:
+                document.getElementById("p1Nome").innerText = "Bubassauro";
+                document.getElementById("perso1").src = "fotos/Bubassauro.gif";
+                break;
+            case 2:
+                document.getElementById("p1Nome").innerText = "Charmander";
+                document.getElementById("perso1").src = "fotos/charmander.gif";
+                break;
+            case 3:
+                document.getElementById("p1Nome").innerText = "Squirtle";
+                document.getElementById("perso1").src = "fotos/squirtle.gif";
+                break;
+            case 4:
+                document.getElementById("p1Nome").innerText = "Pikachu";
+                document.getElementById("perso1").src = "fotos/pikachu.gif";
+                break;
+        }
+        switch (personagem2) {
+            case 1:
+                document.getElementById("p2Nome").innerText = "Bubassauro";
+                document.getElementById("perso2").src = "fotos/Bubassauro.gif";
+                break;
+            case 2:
+                document.getElementById("p2Nome").innerText = "Charmander";
+                document.getElementById("perso2").src = "fotos/charmander.gif";
+                break;
+            case 3:
+                document.getElementById("p2Nome").innerText = "Squirtle";
+                document.getElementById("perso2").src = "fotos/squirtle.gif";
+                break;
+            case 4:
+                document.getElementById("p2Nome").innerText = "Pikachu";
+                document.getElementById("perso2").src = "fotos/pikachu.gif";
+                break;
+        }
+
+
+    }
+
+    // Função para sortear um número de 1 a 20
+    function sortearNumero() {
+        // math.floor arredonda para baixo
+        // math.random gera um número aleatório entre 0 e 1
+        // multiplicando por 20, temos um número entre 0 e 20
+        // somando 1, temos um número entre 1 e 20
+        const numeroSorteado = Math.floor(Math.random() * 20) + 1;
+        return numeroSorteado;
+    }
+    function dano() {
+        const dano = sortearNumero();
+        showOverlay();
+        return dano;
+    }
+
+
+</script>
+
 </html>

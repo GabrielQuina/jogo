@@ -1,8 +1,11 @@
-document.getElementById("tela-inicial").addEventListener("click", function() {
-    document.getElementById("tela-inicial").classList.add("hidden");
-    // executar o código para a tela de seleção depois de 1 segundo
-
-    setTimeout(function() {
-        window.location.href = "selecao.html";
-    },800);
-});
+function selecionarPersonagem(personagem) {
+    x = document.getElementById("playerVez").value;
+    if (x == 1) {
+        document.getElementById("playerVez").value = 2;
+        document.getElementById("playerVezlabel").innerHTML = "2";
+        sessionStorage.setItem("personagem1", personagem);
+    } else if (x == 2) {
+        sessionStorage.setItem("personagem2", personagem);
+        window.location.href = "batalha.html";
+    }    
+}
