@@ -33,10 +33,6 @@
     top: 250px;
 } 
 
-.darkrai {
-
-}
-
 .darkrai > img {
     height: 500px;
     
@@ -175,3 +171,20 @@ body
 .pikachu > img {
     height: 190px;
 }
+
+.fadeOut {
+    transition: opacity 0.5s;
+    opacity: 1;
+}
+.hidden {
+    opacity: 0;
+}
+
+.fadeIn {
+    transition: visibility 0.5s;
+    opacity: 0;
+}
+.visibility {
+    opacity: 1;
+}
+

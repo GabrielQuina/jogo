@@ -13,7 +13,7 @@
 
 <body>
     <div id="background">
-        <div class="quadro">
+        <div class="quadro fadeIn" id="quadro">
             <div class="enunciado">
                 <p>---ESCOLHA UM POKÉMON PARA BATALHAR---</p>
             </div>
@@ -40,5 +40,11 @@
         </div>
     </div>
 </body>
-
+<script>
+    // função para executar algo assim que a pagina carregar
+    window.onload = function() {
+        
+        document.getElementById("quadro").classList.add("visibility");
+    }
+</script>
 </html>
