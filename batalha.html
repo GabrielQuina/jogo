@@ -16,6 +16,7 @@
             <div class="hp">
                 <p>HP: </p>
                 <div class="vida" id="vidap1"></div>
+                <input type="hidden" id="vidap1value" value="100">
             </div>
         </div>
         <div class="pokemonbatalha1">
@@ -29,20 +30,21 @@
             <div class="hp">
                 <p>HP:</p>
                 <div class="vida" id="vidap2"></div>
+                <input type="hidden" id="vidap2value" value="100">
             </div>
         </div>
         <div class="tabela">
-            <p>--Player <span id="playerVezlabel"> 1</span> GIRE O DADO DE ATAQUE--</p>
-            <input type="hidden" id="playerVez">
-            <button>
+            <p>--<span id="playerVezlabel"> 1</span> GIRE O DADO DE ATAQUE--</p>
+            <input type="hidden" id="playerVez" value="1">
+            <button onclick="dano()">
                 <img src="fotos/dados.png" alt="">
             </button>
         </div>
     </div>
 </body>
 <script>
-    function atualizarBarra(porcentagem) {
-        const barra = document.querySelector('#vidap1 .vida-inner');
+    function atualizarBarra(porcentagem, jogador) {
+        const barra = document.querySelector('#vidap'+jogador+' .vida-inner');
         if (barra) {
             barra.style.width = `${porcentagem}%`;
         }
@@ -55,12 +57,17 @@
         barraInner.classList.add('vida-inner');
         barraContainer.appendChild(barraInner);
     });
-
+    // Adicionando dinamicamente o elemento interno da barra
+    document.addEventListener('DOMContentLoaded', () => {
+        const barraContainer = document.getElementById('vidap2');
+        const barraInner = document.createElement('div');
+        barraInner.classList.add('vida-inner');
+        barraContainer.appendChild(barraInner);
+    });
     window.onload = function () {
         //pegar as informações do personagem selecionado na sessão
         const personagem1 = parseInt(sessionStorage.getItem("personagem1"));
         const personagem2 = parseInt(sessionStorage.getItem("personagem2"));
-        debugger;
         switch (personagem1) {
             case 1:
                 document.getElementById("p1Nome").innerText = "Bubassauro";
@@ -112,8 +119,41 @@
     }
     function dano() {
         const dano = sortearNumero();
-        showOverlay();
-        return dano;
+        const playerVez = document.getElementById('playerVez').value;
+        const vidap1 = document.getElementById('vidap1value');
+        const vidap2 = document.getElementById('vidap2value');
+        debugger;
+        if (playerVez == 1) {
+            vidap2.value = parseInt(vidap2.value) - dano;
+            atualizarBarra(vidap2.value, 2);
+            document.getElementById('playerVez').value = 2;
+            document.getElementById('playerVezlabel').innerText = document.getElementById('p2Nome').innerText;
+        } else {
+            vidap1.value = parseInt(vidap1.value) - dano;
+            atualizarBarra(vidap1.value, 1);
+            document.getElementById('playerVez').value = 1;
+            document.getElementById('playerVezlabel').innerText = document.getElementById('p1Nome').innerText;
+        }
+        // validação para alterar a cor da barra de vida do jogador
+        if (vidap1.value <= 20) {
+            document.getElementById('vidap1').style.backgroundColor = 'red';
+        } else {
+            document.getElementById('vidap1').style.backgroundColor = 'green';
+        }
+        if (vidap2.value <= 20) {
+            document.getElementById('vidap2').style.backgroundColor = 'red';
+        } else {
+            document.getElementById('vidap2').style.backgroundColor = 'green';
+        }
+        if (vidap1.value <= 0) {
+            alert('O jogador 2 venceu! Clique em ok para voltar para tela de seleção de personagem');
+            window.location.href = "selecao.html";
+        } else if (vidap2.value <= 0) {
+            alert('O jogador 1 venceu! Clique em ok para voltar para tela de seleção de personagem');
+            window.location.href = "selecao.html";
+        }
+        
+        
     }
 
 

@@ -67,7 +67,7 @@ body {
 
 .vida-inner {
     height: 100%;
-    width: 0%; /* Inicialmente vazia */
+    width: 100%; /* Inicialmente vazia */
     background-color: rgb(74, 228, 95); /* Cor do progresso */
     transition: width 0.5s ease-in-out; /* Animação ao alterar o tamanho */
 }
