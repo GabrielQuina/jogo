@@ -67,9 +67,8 @@ body {
 }
 
 .pokemonbatalha1 > img {
-    width: 30vw;
+    width: 240px;
     position: fixed;
-    max-width: 240px;
     margin-left: 60%;
     margin-top: 9vh;
     background-size: cover;
@@ -77,11 +76,10 @@ body {
 }
 
 .pokemonbatalha2 > img {
-    width: 35vw;
-    max-width: 260px;
+    width: 260px;
     transform: scaleX(-1);
     position: fixed;
-    left: 15vw;
+    left: 17vw;
     bottom: 20vh;
 }
 
