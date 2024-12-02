@@ -9,7 +9,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
-    font-size: 30px
+    font-size: 2vw; /* Font size responsivo */
 }
 
 .enunciado {
@@ -17,7 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 2vh;
 }
 
 #background {
@@ -34,46 +34,49 @@ body {
 }
 
 .quadro {
-    border: solid #b88162 10px;
+    border: solid #b88162 1vh; /* Bordas responsivas */
     border-style: ridge;
     align-items: center;
     flex-wrap: wrap;
-    gap: 100px;
-    width: 90vh;
-    height: 90vh;
+    gap: 5vh;
+    width: 90%;
+    max-width: 1000px; /* Limita a largura máxima */
+    height: auto;
     background-color: #f9decb;
-
+    padding: 2vh;
 }
 
 .coluna {
-    margin-top: 60px;
+    margin-top: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 60px;
+    gap: 5vh;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
 }
 
 .pokemon {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     text-align: center;
-    border: solid #b88162 10px;
+    border: solid #b88162 1vh;
     border-style: ridge;
-    padding: 30px;
+    padding: 2vh;
     background-color: #a86322;
     transition: ease 0.5s;
-    width: 280px;
-    height: 280px;
+    width: 25vw;
+    max-width: 280px; /* Limita a largura máxima */
+    height: auto;
 
-    >img {
+    img {
         width: 100%;
         height: auto;
     }
 
     &:hover {
        transform: scale(1.2); 
-       border: solid red 10px;
+       border: solid red 1vh;
     }  
 }
 
@@ -82,7 +85,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
 
 .fade-in {
@@ -92,4 +95,23 @@ body {
 
 .fade-in.show {
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 4vw;
+    }
+
+    .quadro {
+        width: 95%;
+        gap: 3vh;
+    }
+
+    .coluna {
+        gap: 3vh;
+    }
+
+    .pokemon {
+        width: 40vw;
+    }
 }

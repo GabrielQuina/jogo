@@ -68,10 +68,15 @@
         //pegar as informações do personagem selecionado na sessão
         const personagem1 = parseInt(sessionStorage.getItem("personagem1"));
         const personagem2 = parseInt(sessionStorage.getItem("personagem2"));
+
+        if (!personagem1 || !personagem2){
+            location.href='/';
+            console.log(location.href);
+        }
         switch (personagem1) {
             case 1:
                 document.getElementById("p1Nome").innerText = "Bubassauro";
-                document.getElementById("perso1").src = "fotos/Bubassauro.gif";
+                document.getElementById("perso1").src = "fotos/bubassauro.gif";
                 break;
             case 2:
                 document.getElementById("p1Nome").innerText = "Charmander";
