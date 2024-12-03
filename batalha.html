@@ -44,7 +44,7 @@
 </body>
 <script>
     function atualizarBarra(porcentagem, jogador) {
-        const barra = document.querySelector('#vidap'+jogador+' .vida-inner');
+        const barra = document.querySelector('#vidap' + jogador + ' .vida-inner');
         if (barra) {
             barra.style.width = `${porcentagem}%`;
         }
@@ -68,52 +68,45 @@
         //pegar as informações do personagem selecionado na sessão
         const personagem1 = parseInt(sessionStorage.getItem("personagem1"));
         const personagem2 = parseInt(sessionStorage.getItem("personagem2"));
+        document.getElementById("p1Nome").innerText = "Player 1";
+        document.getElementById("p2Nome").innerText = "Player 2";
 
-        if (!personagem1 || !personagem2){
-            location.href='/';
-            console.log(location.href);
+        if (!personagem1 || !personagem2) {
+            location.href = "selecao.html";
         }
         switch (personagem1) {
-    case 1:
-        document.getElementById("p1Nome").innerText = "Bubassauro";
-        document.getElementById("perso1").src = "fotos/bubassauro.gif";
-        break;
-    case 2:
-        document.getElementById("p1Nome").innerText = "Charmander";
-        document.getElementById("perso1").src = "fotos/charmander.gif";
-        // Ajustar o tamanho da imagem se o personagem for Charmander
-        document.querySelector(".pokemonbatalha1 > img").style.width = "350px";
-        document.querySelector(".pokemonbatalha1 > img").style.marginTop= "1vh";
-        break;
-    case 3:
-        document.getElementById("p1Nome").innerText = "Squirtle";
-        document.getElementById("perso1").src = "fotos/squirtle.gif";
-        break;
-    case 4:
-        document.getElementById("p1Nome").innerText = "Pikachu";
-        document.getElementById("perso1").src = "fotos/pikachu.gif";
-        break;
+            case 1:
+                document.getElementById("perso1").src = "fotos/bubassauro.gif";
+                break;
+            case 2:                
+                document.getElementById("perso1").src = "fotos/charmander.gif";
+                // Ajustar o tamanho da imagem se o personagem for Charmander
+                document.querySelector(".pokemonbatalha1 > img").style.width = "350px";
+                document.querySelector(".pokemonbatalha1 > img").style.marginTop = "1vh";
+                break;
+            case 3:
+                document.getElementById("perso1").src = "fotos/squirtle.gif";
+                break;
+            case 4:
+                document.getElementById("perso1").src = "fotos/pikachu.gif";
+                break;
         }
         switch (personagem2) {
-    case 1:
-        document.getElementById("p2Nome").innerText = "Bubassauro";
-        document.getElementById("perso2").src = "fotos/bubassauro.gif";
-        break;
-    case 2:
-        document.getElementById("p2Nome").innerText = "Charmander";
-        document.getElementById("perso2").src = "fotos/charmander.gif";
-        // Ajustar o tamanho da imagem se o personagem for Charmander
-        document.querySelector(".pokemonbatalha2 > img").style.width = "400px";
-        document.querySelector(".pokemonbatalha1 > img").style.marginTop= "1vh";
-        break;
-    case 3:
-        document.getElementById("p2Nome").innerText = "Squirtle";
-        document.getElementById("perso2").src = "fotos/squirtle.gif";
-        break;
-    case 4:
-        document.getElementById("p2Nome").innerText = "Pikachu";
-        document.getElementById("perso2").src = "fotos/pikachu.gif";
-        break;
+            case 1:                
+                document.getElementById("perso2").src = "fotos/bubassauro.gif";
+                break;
+            case 2:
+                document.getElementById("perso2").src = "fotos/charmander.gif";
+                // Ajustar o tamanho da imagem se o personagem for Charmander
+                document.querySelector(".pokemonbatalha2 > img").style.width = "400px";
+                document.querySelector(".pokemonbatalha1 > img").style.marginTop = "1vh";
+                break;
+            case 3:
+                document.getElementById("perso2").src = "fotos/squirtle.gif";
+                break;
+            case 4:
+                document.getElementById("perso2").src = "fotos/pikachu.gif";
+                break;
         }
 
 
@@ -163,8 +156,8 @@
             alert('O jogador 1 venceu! Clique em ok para voltar para tela de seleção de personagem');
             window.location.href = "selecao.html";
         }
-        
-        
+
+
     }
 
 
