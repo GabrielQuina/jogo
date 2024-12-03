@@ -43,7 +43,7 @@ body {
     max-width: 1000px; /* Limita a largura máxima */
     height: auto;
     background-color: #f9decb;
-    padding: 2vh;
+    padding: 0vh 0.5vh 2vh 0.5vh;
 }
 
 .coluna {
@@ -73,11 +73,15 @@ body {
         width: 100%;
         height: auto;
     }
+}
 
-    &:hover {
-       transform: scale(1.2); 
-       border: solid red 1vh;
-    }  
+.hoverBlue:hover{
+    transform: scale(1.2); 
+    border: solid blue 1vh;
+}
+.hoverRed:hover{
+    transform: scale(1.2); 
+    border: solid red 1vh;
 }
 
 .subEnunciado {
@@ -86,6 +90,7 @@ body {
     align-items: center;
     text-align: center;
     margin-top: 1vh;
+    color: blue;
 }
 
 .fade-in {
