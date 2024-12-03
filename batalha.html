@@ -18,12 +18,13 @@
                 <div class="vida" id="vidap1"></div>
                 <input type="hidden" id="vidap1value" value="100">
             </div>
+            <p class="danos" id="p1dano"></p>
         </div>
-        <div class="pokemonbatalha1">
-            <img src="fotos/squirtle.gif" id="perso1" alt="">
+        <div class="pokemonbatalha1" id="pokemonbatalha1">
+            <img src="fotos/squirtle.gif" class="" id="perso1" alt="">
         </div>
-        <div class="pokemonbatalha2">
-            <img src="fotos/charmander.gif" id="perso2" alt="">
+        <div class="pokemonbatalha2" id="pokemonbatalha2">
+            <img src="fotos/charmander.gif" class="" id="perso2" alt="">
         </div>
         <div class="jogador">
             <h1 id="p2Nome">NOME</h1>
@@ -32,11 +33,12 @@
                 <div class="vida" id="vidap2"></div>
                 <input type="hidden" id="vidap2value" value="100">
             </div>
+            <p class="danos" id="p2dano"></p>
         </div>
         <div class="tabela">
             <p>--<span id="playerVezlabel"> 1</span> GIRE O DADO DE ATAQUE--</p>
             <input type="hidden" id="playerVez" value="1">
-            <button onclick="dano()">
+            <button id="btn_ataque" onclick="dano()">
                 <img src="fotos/dados.png" alt="">
             </button>
         </div>
@@ -64,12 +66,21 @@
         barraInner.classList.add('vida-inner');
         barraContainer.appendChild(barraInner);
     });
+    function sorteioVez() {
+        const x = Math.floor(Math.random() * 2) + 1;
+        return x;
+    }
     window.onload = function () {
+        // sorteia a vez através da função sorteioVez
+        const vez = sorteioVez();
+        document.getElementById('playerVez').value = vez;
+        document.getElementById('playerVezlabel').innerHTML = "PLAYER " + vez;
+
         //pegar as informações do personagem selecionado na sessão
         const personagem1 = parseInt(sessionStorage.getItem("personagem1"));
         const personagem2 = parseInt(sessionStorage.getItem("personagem2"));
-        document.getElementById("p1Nome").innerText = "Player 1";
-        document.getElementById("p2Nome").innerText = "Player 2";
+        document.getElementById("p1Nome").innerText = "PLAYER 1";
+        document.getElementById("p2Nome").innerText = "PLAYER 2";
 
         if (!personagem1 || !personagem2) {
             location.href = "selecao.html";
@@ -78,7 +89,7 @@
             case 1:
                 document.getElementById("perso1").src = "fotos/bubassauro.gif";
                 break;
-            case 2:                
+            case 2:
                 document.getElementById("perso1").src = "fotos/charmander.gif";
                 // Ajustar o tamanho da imagem se o personagem for Charmander
                 document.querySelector(".pokemonbatalha1 > img").style.width = "350px";
@@ -92,7 +103,7 @@
                 break;
         }
         switch (personagem2) {
-            case 1:                
+            case 1:
                 document.getElementById("perso2").src = "fotos/bubassauro.gif";
                 break;
             case 2:
@@ -122,21 +133,26 @@
         return numeroSorteado;
     }
     function dano() {
+        document.getElementById('btn_ataque').disabled = true;
         const dano = sortearNumero();
         const playerVez = document.getElementById('playerVez').value;
         const vidap1 = document.getElementById('vidap1value');
         const vidap2 = document.getElementById('vidap2value');
-        debugger;
+        //debugger;
         if (playerVez == 1) {
+            document.getElementById('pokemonbatalha2').classList.add('opacidade');
             vidap2.value = parseInt(vidap2.value) - dano;
             atualizarBarra(vidap2.value, 2);
             document.getElementById('playerVez').value = 2;
             document.getElementById('playerVezlabel').innerText = document.getElementById('p2Nome').innerText;
+            document.getElementById('p2dano').innerText = "Dano: -" + dano + " HP";
         } else {
+            document.getElementById('pokemonbatalha1').classList.add('opacidade');
             vidap1.value = parseInt(vidap1.value) - dano;
             atualizarBarra(vidap1.value, 1);
             document.getElementById('playerVez').value = 1;
             document.getElementById('playerVezlabel').innerText = document.getElementById('p1Nome').innerText;
+            document.getElementById('p1dano').innerText = "Dano: -" + dano + " HP";
         }
         // validação para alterar a cor da barra de vida do jogador
         if (vidap1.value <= 20) {
@@ -156,8 +172,13 @@
             alert('O jogador 1 venceu! Clique em ok para voltar para tela de seleção de personagem');
             window.location.href = "selecao.html";
         }
-
-
+        setTimeout(() => {
+            document.getElementById('p1dano').innerText = "";
+            document.getElementById('p2dano').innerText = "";
+            document.getElementById('btn_ataque').disabled = false;
+            document.getElementById('pokemonbatalha1').classList.remove('opacidade');
+            document.getElementById('pokemonbatalha2').classList.remove('opacidade');
+        }, 2000);
     }
 
 

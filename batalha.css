@@ -18,13 +18,13 @@ body {
     font-family: "Pixelify Sans", serif;
     font-optical-sizing: auto;
     max-width: 1000px;
-    font-size: 2vh; 
+    font-size: 2vh;
 }
 
 .jogador-maquina {
     display: flex;
     flex-direction: column;
-    border: solid #b88162 0.9vh; 
+    border: solid #b88162 0.9vh;
     border-style: ridge;
     background-color: #f9decb;
     width: 80%;
@@ -35,7 +35,7 @@ body {
     padding: 1.5vh 2vh;
     margin-left: 100px;
 
-    > h1 {
+    >h1 {
         font-size: 26px;
     }
 }
@@ -61,12 +61,12 @@ body {
 
 .vida-inner {
     height: 100%;
-    width: 100%; 
-    background-color: rgb(74, 228, 95); 
+    width: 100%;
+    background-color: rgb(74, 228, 95);
     transition: width 0.5s ease-in-out;
 }
 
-.pokemonbatalha1 > img {
+.pokemonbatalha1>img {
     width: 240px;
     position: fixed;
     margin-left: 60%;
@@ -75,7 +75,7 @@ body {
     background-position: center;
 }
 
-.pokemonbatalha2 > img {
+.pokemonbatalha2>img {
     width: 260px;
     transform: scaleX(-1);
     position: fixed;
@@ -98,7 +98,7 @@ body {
     bottom: 25vh;
     border-radius: 2vh;
 
-    > h1 {
+    >h1 {
         font-size: 26px;
     }
 }
@@ -118,12 +118,12 @@ body {
     bottom: 0;
     z-index: 1;
 
-    > p {
+    >p {
         font-size: 3vh;
         padding-top: 2vh;
     }
 
-    > button {
+    >button {
         border: solid black 0.3vh;
         width: 80%;
         max-width: 350px;
@@ -134,14 +134,14 @@ body {
         cursor: pointer;
 
         &:hover {
-            border: solid rgb(253, 0, 0) 0.3vh;    
+            border: solid rgb(253, 0, 0) 0.3vh;
         }
 
-        &:active{
+        &:active {
             background-color: rgb(132, 63, 197);
         }
 
-        > img {
+        >img {
             width: 3vh;
         }
     }
@@ -233,24 +233,48 @@ body {
         font-size: 2.5vh;
     }
 
-    .jogador-maquina, .jogador {
+    .jogador-maquina,
+    .jogador {
         width: 90%;
         padding: 2vh;
     }
 
     .tabela {
-        > p {
+        >p {
             font-size: 2.5vh;
         }
 
-        > button {
+        >button {
             width: 90%;
             height: 6vh;
         }
     }
 
-    .pokemonbatalha1 > img,
-    .pokemonbatalha2 > img {
+    .pokemonbatalha1>img,
+    .pokemonbatalha2>img {
         width: 50vw;
+    }
+}
+
+.danos {
+    color: red;
+    font-size: 2.5vh;
+}
+
+.opacidade {
+    animation: opacidade 1s infinite;
+}
+
+@keyframes opacidade {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
