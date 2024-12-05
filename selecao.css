@@ -120,3 +120,26 @@ body {
         width: 40vw;
     }
 }
+
+.subEnunciadoPontuacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 1vh;
+    color: black
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    margin-inline-start: 0.9vh;
+    background-color: #b88162;
+    border: solid #b88162 1vh;
+    border-radius: 5px;
+    padding: 0.1vh;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: ease 0.5s;
+}

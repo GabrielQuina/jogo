@@ -36,7 +36,7 @@
             <p class="danos" id="p2dano"></p>
         </div>
         <div class="tabela">
-            <p>--<span id="playerVezlabel"> 1</span> GIRE O DADO DE ATAQUE--</p>
+            <p>--<span id="playerVezlabel"> 1</span> GIRE O DADO PARA ATACAR--</p>
             <input type="hidden" id="playerVez" value="1">
             <button id="btn_ataque" onclick="dano()">
                 <img src="fotos/dados.png" alt="">
@@ -166,10 +166,26 @@
             document.getElementById('vidap2').style.backgroundColor = 'green';
         }
         if (vidap1.value <= 0) {
+            debugger;
             alert('O jogador 2 venceu! Clique em ok para voltar para tela de seleção de personagem');
+
+            if (sessionStorage.getItem("pontPlayer2") == null || isNaN(sessionStorage.getItem("pontPlayer2"))) {
+                sessionStorage.setItem("pontPlayer2", 1);
+            } else {
+                sessionStorage.setItem("pontPlayer2", parseInt(sessionStorage.getItem("pontPlayer2")) + 1);
+            }
+
             window.location.href = "selecao.html";
         } else if (vidap2.value <= 0) {
+            debugger;
             alert('O jogador 1 venceu! Clique em ok para voltar para tela de seleção de personagem');
+
+            if (sessionStorage.getItem("pontPlayer1") == null || isNaN(sessionStorage.getItem("pontPlayer1"))) {
+                sessionStorage.setItem("pontPlayer1", 1);
+            } else {
+                sessionStorage.setItem("pontPlayer1", parseInt(sessionStorage.getItem("pontPlayer1")) + 1);
+            }
+
             window.location.href = "selecao.html";
         }
         setTimeout(() => {
@@ -178,7 +194,7 @@
             document.getElementById('btn_ataque').disabled = false;
             document.getElementById('pokemonbatalha1').classList.remove('opacidade');
             document.getElementById('pokemonbatalha2').classList.remove('opacidade');
-        }, 2000);
+        }, 1000);
     }
 
 

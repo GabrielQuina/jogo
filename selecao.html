@@ -18,6 +18,10 @@
             <div class="enunciado">
                 <p>---ESCOLHA UM POKÉMON PARA BATALHAR---</p>
             </div>
+            <div class="subEnunciadoPontuacao">
+                <p>Player 1ㅤ<span id="pontPlayer1">0</span> X <span id="pontPlayer2">0</span>ㅤPlayer 2  <button class="btn" onclick="limparPoint()">resetar</button></p>
+                <input type="hidden" id="playerVez" value="1">
+            </div>
             <div class="subEnunciado">
                 <p id="indicadorPlayer">Player <span id="playerVezlabel">1</span></p>
                 <input type="hidden" id="playerVez" value="1">
@@ -52,6 +56,27 @@
     window.onload = function () {
         const element = document.querySelector(".fade-in");
         element.classList.add("show");
+
+        debugger;
+        //session pontuacao de cada player get
+        var pontPlayer1 = sessionStorage.getItem("pontPlayer1");
+        var pontPlayer2 = sessionStorage.getItem("pontPlayer2");
+        //se a pontuação for nula, seta 0
+        if (pontPlayer1 == null || pontPlayer1 == "null" || pontPlayer1 == "undefined" || pontPlayer1 == "" || isNaN(pontPlayer1)) {
+            pontPlayer1 = 0;
+        }
+        if (pontPlayer2 == null || pontPlayer2 == "null" || pontPlayer2 == "undefined" || pontPlayer2 == "" || isNaN(pontPlayer2)) {
+            pontPlayer2 = 0;
+        }
+        //seta a pontuação na tela
+        document.getElementById("pontPlayer1").innerHTML = pontPlayer1;
+        document.getElementById("pontPlayer2").innerHTML = pontPlayer2;
+    }
+    function limparPoint(){
+        sessionStorage.setItem("pontPlayer1", 0);
+        sessionStorage.setItem("pontPlayer2", 0);
+        document.getElementById("pontPlayer1").innerHTML = 0;
+        document.getElementById("pontPlayer2").innerHTML = 0;
     }
 </script>
 

@@ -10,20 +10,21 @@
 </head>
 
 <body>
-    <div id="tela-inicial" class="fadeOut" <div id="background">
-        <div class="logo">
-            <img src="fotos/logo.png" alt="Logo">
-            <div class="darkrai">
-                <img src="fotos/Darkrai.png" alt="Darkrai">
+    <div id="tela-inicial" class="fadeOut">
+        <div id="background">
+            <div class="logo">
+                <img src="fotos/logo.png" alt="Logo">
+                <div class="darkrai">
+                    <img src="fotos/Darkrai.png" alt="Darkrai">
+                </div>
+            </div>
+            <div class="nomejogo">
+                <img src="fotos/Twilight-Interlude.png" alt="Twilight-Interlude">
+            </div>
+            <div class="start">
+                <img src="fotos/Start.png" alt="Start">
             </div>
         </div>
-        <div class="nomejogo">
-            <img src="fotos/Twilight-Interlude.png" alt="Twilight-Interlude">
-        </div>
-        <div class="start">
-            <img src="fotos/Start.png" alt="Start">
-        </div>
-    </div>
     </div>
 </body>
 <script src="script.js"></script>
@@ -31,11 +32,13 @@
     // Adiciona a classe hidden ao clicar na tela e redireciona para a tela de seleção de personagem
     document.getElementById("tela-inicial").addEventListener("click", function () {
         document.getElementById("tela-inicial").classList.add("hidden");
+        // Limpa a session storage
+        sessionStorage.clear();
         // Abre a tela de seleção de personagem depois de 0.8 segundos
         setTimeout(function () {
             window.location.href = "selecao.html";
         }, 800);
-    });
+    });    
 </script>
 
 </html>
