@@ -43,6 +43,7 @@
             </button>
         </div>
     </div>
+    
 </body>
 <script>
     function atualizarBarra(porcentagem, jogador) {
@@ -166,27 +167,23 @@
             document.getElementById('vidap2').style.backgroundColor = 'green';
         }
         if (vidap1.value <= 0) {
-            debugger;
-            alert('O jogador 2 venceu! Clique em ok para voltar para tela de seleção de personagem');
-
             if (sessionStorage.getItem("pontPlayer2") == null || isNaN(sessionStorage.getItem("pontPlayer2"))) {
                 sessionStorage.setItem("pontPlayer2", 1);
             } else {
                 sessionStorage.setItem("pontPlayer2", parseInt(sessionStorage.getItem("pontPlayer2")) + 1);
             }
+            sessionStorage.setItem("vencedor", "PLAYER 2");
+            window.location.href = "vencedor.html";
 
-            window.location.href = "selecao.html";
         } else if (vidap2.value <= 0) {
-            debugger;
-            alert('O jogador 1 venceu! Clique em ok para voltar para tela de seleção de personagem');
-
             if (sessionStorage.getItem("pontPlayer1") == null || isNaN(sessionStorage.getItem("pontPlayer1"))) {
                 sessionStorage.setItem("pontPlayer1", 1);
             } else {
                 sessionStorage.setItem("pontPlayer1", parseInt(sessionStorage.getItem("pontPlayer1")) + 1);
             }
+            sessionStorage.setItem("vencedor", "PLAYER 1");
+            window.location.href = "vencedor.html";
 
-            window.location.href = "selecao.html";
         }
         setTimeout(() => {
             document.getElementById('p1dano').innerText = "";
@@ -194,7 +191,7 @@
             document.getElementById('btn_ataque').disabled = false;
             document.getElementById('pokemonbatalha1').classList.remove('opacidade');
             document.getElementById('pokemonbatalha2').classList.remove('opacidade');
-        }, 1000);
+        }, 0);
     }
 
 

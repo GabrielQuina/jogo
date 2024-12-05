@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vencedor.css">
+    <link rel="shortcut icon" href="fotos/pokebola.ico" type="fotos/pokebola.icoicon">
+</head>
+
+<body>
+    <div id="background">
+        <div class="quadro fade-in" id="quadro">
+            <p style="text-align: center;">--- O VENCEDOR FOI ---</p>
+            <h1 id="vencedor"></h1>
+            <a href="selecao.html" class="btn">Voltar para a selecão de personagem</button>
+        </div>
+    </div>
+</body>
+<audio src="audios/2.mp3"></audio>
+
+<script src="script.js"></script>
+<script>
+    window.onload = function () {
+        const element = document.querySelector(".fade-in");
+        element.classList.add("show");
+
+        var audio = document.querySelector("audio");
+        audio.play();
+        
+        const vencedor = document.getElementById('vencedor');
+        vencedor.innerHTML = sessionStorage.getItem('vencedor');
+
+        setTimeout(function () {
+            window.location.href = "selecao.html";
+        }, 5000);
+    }
+</script>
+
+</html>

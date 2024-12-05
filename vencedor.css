@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Pixelify Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 2vw; /* Font size responsivo */
+}
+
+.enunciado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2vh;
+}
+
+#background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('fotos/background.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.quadro {
+    border: solid #b88162 1vh; /* Bordas responsivas */
+    border-style: ridge;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5vh;
+    width: 90%;
+    max-width: 1000px; /* Limita a largura máxima */
+    height: auto;
+    background-color: #f9decb;
+    padding: 0vh 0.5vh 2vh 0.5vh;
+}
+
+.coluna {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+}
+
+.pokemon {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: solid #b88162 1vh;
+    border-style: ridge;
+    padding: 2vh;
+    background-color: #a86322;
+    transition: ease 0.5s;
+    width: 25vw;
+    max-width: 280px; /* Limita a largura máxima */
+    height: auto;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.hoverBlue:hover{
+    transform: scale(1.2); 
+    border: solid blue 1vh;
+}
+.hoverRed:hover{
+    transform: scale(1.2); 
+    border: solid red 1vh;
+}
+
+.subEnunciado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 1vh;
+    color: blue;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 4vw;
+    }
+
+    .quadro {
+        width: 95%;
+        gap: 3vh;
+    }
+
+    .coluna {
+        gap: 3vh;
+    }
+
+    .pokemon {
+        width: 40vw;
+    }
+}
+
+.subEnunciadoPontuacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 1vh;
+    color: black
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    background-color: #b88162;
+    border: solid #b88162 0.5h;
+    border-radius: 5px;
+    padding: 0.1vh;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: ease 0.5s;
+    text-decoration: none;
+}
+
+#vencedor {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2vh;
+
+}
